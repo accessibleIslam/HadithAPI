@@ -30,6 +30,7 @@ collectionName = "Muslim"
 jsonFileName = "eng-muslim.json"
 f = open(os.path.join("./JSONFiles", jsonFileName), "r", encoding="utf-8")
 allData = json.load(f)
+f.close()
 totalAhadith = len(allData["hadiths"])
 
 ahadith = allData["hadiths"]
