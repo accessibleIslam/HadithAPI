@@ -5,7 +5,7 @@ inputRootFolder = os.path.join(".", "Output", "Bukhari")
 outputRootFolder = os.path.join(".", "Output", "BukhariDiff")
 
 def transformToSingleLineAhadith(inputFile):
-    with open(inputFile, 'r') as inputFile:
+    with open(inputFile, 'r', encoding='utf-8') as inputFile:
         lines = inputFile.readlines()
 
     mergedLines = []
@@ -26,14 +26,13 @@ def transformToSingleLineAhadith(inputFile):
     return mergedLines
 
 def writeLinesToFile(lines, outputFilePath):
-    with open(outputFilePath, 'w') as outputFile:
+    with open(outputFilePath, 'w', encoding='utf-8') as outputFile:
         for line in lines:
             outputFile.write(line + "\n")
 
 for bookNumber in range(1, 98):
-    if bookNumber == 94:
-        bookFilePath = os.path.join(inputRootFolder, str(bookNumber) + ".txt")
-        outputFilePath = os.path.join(outputRootFolder, str(bookNumber) + ".txt")
-        print(f"Proceesing {bookFilePath} to {outputFilePath}")
-        mergedAhadith = transformToSingleLineAhadith(bookFilePath)
-        writeLinesToFile(mergedAhadith, outputFilePath)
+    bookFilePath = os.path.join(inputRootFolder, str(bookNumber) + ".txt")
+    outputFilePath = os.path.join(outputRootFolder, str(bookNumber) + ".txt")
+    print(f"Proceesing {bookFilePath} to {outputFilePath}")
+    mergedAhadith = transformToSingleLineAhadith(bookFilePath)
+    writeLinesToFile(mergedAhadith, outputFilePath)
