@@ -33,6 +33,6 @@ def writeLinesToFile(lines, outputFilePath):
 for bookNumber in range(1, 98):
     bookFilePath = os.path.join(inputRootFolder, str(bookNumber) + ".txt")
     outputFilePath = os.path.join(outputRootFolder, str(bookNumber) + ".txt")
-    print(f"Proceesing {bookFilePath} to {outputFilePath}")
+    print(f"Processing {bookFilePath} to {outputFilePath}")
     mergedAhadith = transformToSingleLineAhadith(bookFilePath)
     writeLinesToFile(mergedAhadith, outputFilePath)
